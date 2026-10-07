@@ -1,0 +1,141 @@
+import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
+import { CalendarClock, Sparkles, ArrowRight, Lock, Mail, AlertCircle } from 'lucide-react';
+
+interface LoginPageProps {
+  onSwitchToRegister: () => void;
+}
+
+export const LoginPage: React.FC<LoginPageProps> = ({ onSwitchToRegister }) => {
+  const { login } = useAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    const res = await login(email, password);
+    setLoading(false);
+    if (!res.success) {
+      setError(res.message || 'Login failed. Please check credentials.');
+    }
+  };
+
+  const handleDemoLogin = async () => {
+    setEmail('demo@smartplanner.io');
+    setPassword('password123');
+    setLoading(true);
+    setError(null);
+    const res = await login('demo@smartplanner.io', 'password123');
+    setLoading(false);
+    if (!res.success) {
+      setError(res.message || 'Demo login failed');
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4 py-12">
+      <div className="max-w-md w-full space-y-6">
+        {/* Brand */}
+        <div className="text-center">
+          <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white mx-auto shadow-lg shadow-indigo-500/25 mb-3">
+            <CalendarClock className="w-6 h-6" />
+          </div>
+          <h1 className="text-2xl font-black text-gray-900 dark:text-gray-100 tracking-tight">
+            Smart To-Do Planner
+          </h1>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            Dynamic effort chunking, deadline urgency & workload balancing
+          </p>
+        </div>
+
+        {/* Form Card */}
+        <div className="bg-white dark:bg-gray-900 p-7 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-none space-y-5">
+          {error && (
+            <div className="p-3.5 rounded-xl bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-900/60 text-xs text-rose-700 dark:text-rose-300 flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 flex-shrink-0" />
+              <span>{error}</span>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5">
+                Email Address
+              </label>
+              <div className="relative">
+                <Mail className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="alex@example.com"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5">
+                Password
+              </label>
+              <div className="relative">
+                <Lock className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md shadow-indigo-500/20 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+            >
+              <span>{loading ? 'Signing in...' : 'Sign In'}</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </form>
+
+          {/* 1-Click Demo Login */}
+          <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
+            <button
+              type="button"
+              onClick={handleDemoLogin}
+              disabled={loading}
+              className="w-full py-2.5 px-4 rounded-xl bg-linear-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold shadow-xs transition-all flex items-center justify-center gap-2"
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>1-Click Demo Login (Preloaded Data)</span>
+            </button>
+            <p className="text-[11px] text-gray-400 text-center mt-1.5">
+              Instant access with preloaded realistic tasks
+            </p>
+          </div>
+
+          {/* Toggle to Register */}
+          <div className="text-center pt-2 text-xs text-gray-500 dark:text-gray-400">
+            Don't have an account?{' '}
+            <button
+              type="button"
+              onClick={onSwitchToRegister}
+              className="font-bold text-indigo-600 dark:text-indigo-400 hover:underline"
+            >
+              Create Account
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

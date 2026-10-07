@@ -1,0 +1,138 @@
+{
+  "users": [
+    {
+      "_id": "user_1790839781808_0pgk1r",
+      "email": "demo@smartplanner.io",
+      "password": "$2b$10$/v/3eEOTkir.4WQVCjbHr.MH1bCnT6OpkKDeJZIbtKt5uF86oNyTG",
+      "name": "Alex Rivera",
+      "settings": {
+        "dailyHours": 6,
+        "workingDays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "startTime": "09:00",
+        "bufferPercent": 20
+      },
+      "createdAt": "2026-10-01T07:29:41.808Z",
+      "updatedAt": "2026-10-01T07:29:41.808Z"
+    }
+  ],
+  "tasks": [
+    {
+      "_id": "task_1790839781809_jtbhzn",
+      "userId": "user_1790839781808_0pgk1r",
+      "title": "Review Quarterly Security Audit",
+      "description": "Verify IAM role permissions and audit VPC security group rules.",
+      "priority": "High",
+      "deadline": "2026-10-02T07:29:41.809Z",
+      "estimatedEffort": 3.5,
+      "category": "Security",
+      "status": "In Progress",
+      "hoursCompleted": 1,
+      "createdAt": "2026-10-01T07:29:41.809Z",
+      "updatedAt": "2026-10-01T07:29:41.809Z"
+    },
+    {
+      "_id": "task_1790839781809_p8vmdn",
+      "userId": "user_1790839781808_0pgk1r",
+      "title": "Implement Core Planner Algorithm",
+      "description": "Implement workload leveling, deadline constraints, and 20% buffer reservation.",
+      "priority": "High",
+      "deadline": "2026-10-03T07:29:41.809Z",
+      "estimatedEffort": 6,
+      "category": "Engineering",
+      "status": "In Progress",
+      "hoursCompleted": 2.5,
+      "createdAt": "2026-10-01T07:29:41.809Z",
+      "updatedAt": "2026-10-01T07:29:41.809Z"
+    },
+    {
+      "_id": "task_1790839781809_62bec2",
+      "userId": "user_1790839781808_0pgk1r",
+      "title": "Design Client Presentation Deck",
+      "description": "Prepare pitch deck slides with product roadmap and ROI projections.",
+      "priority": "Medium",
+      "deadline": "2026-10-05T07:29:41.809Z",
+      "estimatedEffort": 4,
+      "category": "Marketing",
+      "status": "Pending",
+      "hoursCompleted": 0,
+      "createdAt": "2026-10-01T07:29:41.809Z",
+      "updatedAt": "2026-10-01T07:29:41.809Z"
+    },
+    {
+      "_id": "task_1790839781810_nvpsb6",
+      "userId": "user_1790839781808_0pgk1r",
+      "title": "Prepare Tax & Financial Invoices",
+      "description": "Reconcile Q3 receipts and submit expense filings to accounting.",
+      "priority": "High",
+      "deadline": "2026-09-30T19:29:41.809Z",
+      "estimatedEffort": 2,
+      "category": "Finance",
+      "status": "Pending",
+      "hoursCompleted": 0,
+      "createdAt": "2026-10-01T07:29:41.810Z",
+      "updatedAt": "2026-10-01T07:29:41.810Z"
+    },
+    {
+      "_id": "task_1790839781810_ape0hu",
+      "userId": "user_1790839781808_0pgk1r",
+      "title": "Write Unit Tests for Task Prioritizer",
+      "description": "Cover priority weights, deadline urgency decays, and effort pressure multipliers.",
+      "priority": "Medium",
+      "deadline": "2026-10-04T07:29:41.809Z",
+      "estimatedEffort": 3,
+      "category": "Engineering",
+      "status": "Pending",
+      "hoursCompleted": 0,
+      "createdAt": "2026-10-01T07:29:41.810Z",
+      "updatedAt": "2026-10-01T07:29:41.810Z"
+    },
+    {
+      "_id": "task_1790839781810_ju5ayy",
+      "userId": "user_1790839781808_0pgk1r",
+      "title": "Annual Health Checkup & Lab Tests",
+      "description": "Routine blood panel and physical checkup at clinic.",
+      "priority": "Low",
+      "deadline": "2026-10-08T07:29:41.809Z",
+      "estimatedEffort": 1.5,
+      "category": "Health",
+      "status": "Pending",
+      "hoursCompleted": 0,
+      "createdAt": "2026-10-01T07:29:41.810Z",
+      "updatedAt": "2026-10-01T07:29:41.810Z"
+    },
+    {
+      "_id": "task_1790839781810_mckw5i",
+      "userId": "user_1790839781808_0pgk1r",
+      "title": "Draft Product Architecture Whitepaper",
+      "description": "Large multi-day effort describing system scalability, data isolation, and JWT auth flow.",
+      "priority": "High",
+      "deadline": "2026-10-06T07:29:41.809Z",
+      "estimatedEffort": 10,
+      "category": "Engineering",
+      "status": "Pending",
+      "hoursCompleted": 0,
+      "createdAt": "2026-10-01T07:29:41.810Z",
+      "updatedAt": "2026-10-01T07:29:41.810Z"
+    },
+    {
+      "_id": "task_1790839781811_f89rbm",
+      "userId": "user_1790839781808_0pgk1r",
+      "title": "Renew Home Office Equipment Insurance",
+      "description": "Review policy coverage and update electronics serial list.",
+      "priority": "Low",
+      "deadline": "2026-10-10T07:29:41.809Z",
+      "estimatedEffort": 1,
+      "category": "Personal",
+      "status": "Pending",
+      "hoursCompleted": 0,
+      "createdAt": "2026-10-01T07:29:41.811Z",
+      "updatedAt": "2026-10-01T07:29:41.811Z"
+    }
+  ]
+}

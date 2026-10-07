@@ -1,0 +1,6 @@
+{
+  "name": "Smart To-Do Planner",
+  "description": "Intelligent MERN task manager and realistic daily plan generator with automated workload balancing, effort splitting, and priority scoring.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
